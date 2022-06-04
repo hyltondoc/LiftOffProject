@@ -3,51 +3,79 @@
 *@
 @{
 }
+
+
+@model LiftOffProject.Models.Quiz
+
 <h1>Take Our Wine Quiz!</h1>
-<form method="post">
+<form method="post" action="Quiz">
     <p>Everyone loves chocolate...Right??? Which type of chocolate do you prefer?</p>
-    <input type="radio" id="milk chocolate" name="question_one" value="Milk Chocolate">
-    <label for="milk chocolate">Milk Chocolate</label><br>
-    <input type="radio" id="dark chocolate" name="question_one" value="Dark Chocolate">
-    <label for="dark chocolate">Dark Chocolate</label><br>
-    <input type="radio" id="hate" name="question_one" value="I HATE Chocolate">
-    <label for="hate">I HATE Chocolate!</label>
+    @foreach (var chocolate in Model.Chocolates)
+    {
+        <input type="radio" asp-for="Chocolate" value="@chocolate.Value">
+        <label asp-for="Chocolate">@chocolate.Key</label><br>
+    }
+
+    @*<input type="radio" id="milk chocolate" name="question_one" value="Milk Chocolate">
+        <label for="milk chocolate">Milk Chocolate</label><br>
+        <input type="radio" id="dark chocolate" name="question_one" value="Dark Chocolate">
+        <label for="dark chocolate">Dark Chocolate</label><br>
+        <input type="radio" id="hate" name="question_one" value="I HATE Chocolate">
+        <label for="hate">I HATE Chocolate!</label>*@
 
     <br>
-
     <p>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</p>
-    <input type="radio" id="margarita" name="question_two" value="Margarita">
-    <label for="margarita">Margarita</label><br>
-    <input type="radio" id="gin_tonic" name="question_two" value="Gin & Tonic">
-    <label for="gin_tonic">Gin & Tonic</label><br>
-    <input type="radio" id="old_fashioned" name="question_two" value="Old Fashioned">
-    <label for="old_fashioned">Old Fashioned</label><br>
-    <input type="radio" id="vodka_cran" name="question_two" value="Vodka Cranberry">
-    <label for="vodka_cran">Vodka Cranberry</label>
+    @foreach (var cocktail in Model.Cocktails)
+    {
+        <input type="radio" asp-for="Cocktail" value="@cocktail.Value">
+        <label asp-for="Cocktail">@cocktail.Key</label><br>
+    }
+    @*<p>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</p>
+        <input type="radio" id="margarita" name="question_two" value="Margarita">
+        <label for="margarita">Margarita</label><br>
+        <input type="radio" id="gin_tonic" name="question_two" value="Gin & Tonic">
+        <label for="gin_tonic">Gin & Tonic</label><br>
+        <input type="radio" id="old_fashioned" name="question_two" value="Old Fashioned">
+        <label for="old_fashioned">Old Fashioned</label><br>
+        <input type="radio" id="vodka_cran" name="question_two" value="Vodka Cranberry">
+        <label for="vodka_cran">Vodka Cranberry</label>*@
 
     <br>
 
     <p>If you could only eat one fruit for the rest of your life, which fruit would you pick?</p>
-    <input type="radio" id="cherries" name="question_three" value="Cherries">
-    <label for="cherries">Cherries</label><br>
-    <input type="radio" id="apples" name="question_three" value="Apples">
-    <label for="apples">Apples</label><br>
-    <input type="radio" id="peaches" name="question_three" value="Peaches">
-    <label for="peaches">Peaches</label><br>
-    <input type="radio" id="dark_plums" name="question_three" value="Dark Plums">
-    <label for="dark_plums">Dark Plums</label>
+    @foreach (var fruit in Model.Fruits)
+    {
+        <input type="radio" asp-for="Fruit" value="@fruit.Value">
+        <label asp-for="Fruit">@fruit.Key</label><br>
+    }
+    @*<p>If you could only eat one fruit for the rest of your life, which fruit would you pick?</p>
+        <input type="radio" id="cherries" name="question_three" value="Cherries">
+        <label for="cherries">Cherries</label><br>
+        <input type="radio" id="apples" name="question_three" value="Apples">
+        <label for="apples">Apples</label><br>
+        <input type="radio" id="peaches" name="question_three" value="Peaches">
+        <label for="peaches">Peaches</label><br>
+        <input type="radio" id="dark_plums" name="question_three" value="Dark Plums">
+        <label for="dark_plums">Dark Plums</label>*@
 
     <br>
 
     <p>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</p>
-    <input type="radio" id="paris_france" name="question_four" value="Paris, France">
-    <label for="paris_france">Paris, France</label><br>
-    <input type="radio" id="turks" name="question_four" value="Turks & Caicos">
-    <label for="turks">Turks & Caicos</label><br>
-    <input type="radio" id="sydney" name="question_four" value="Sydney, Australia">
-    <label for="sydney">Sydney, Australia</label><br>
-    <input type="radio" id="falls" name="question_four" value="Victoria Falls, Zambia">
-    <label for="falls">Victoria Falls, Zambia</label>
+    @foreach (var vacation in Model.Vacations)
+    {
+        <input type="radio" asp-for="Vacation" value="@vacation.Value">
+        <label asp-for="Vacation">@vacation.Key</label><br>
+    }
+
+    @*<p>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</p>
+        <input type="radio" id="paris_france" name="question_four" value="Paris, France">
+        <label for="paris_france">Paris, France</label><br>
+        <input type="radio" id="turks" name="question_four" value="Turks & Caicos">
+        <label for="turks">Turks & Caicos</label><br>
+        <input type="radio" id="sydney" name="question_four" value="Sydney, Australia">
+        <label for="sydney">Sydney, Australia</label><br>
+        <input type="radio" id="falls" name="question_four" value="Victoria Falls, Zambia">
+        <label for="falls">Victoria Falls, Zambia</label>*@
 
     <br>
 

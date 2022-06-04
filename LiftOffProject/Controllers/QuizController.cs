@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LiftOffProject.Data;
+using LiftOffProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,8 +24,18 @@ namespace LiftOffProject.Controllers
         [HttpGet("/Quiz")]
         public IActionResult QuizForm()
         {
-            
-            return View();
+            var quiz = new Quiz();
+            return View(quiz);
+        }
+
+        [HttpPost("/Quiz")]
+        public IActionResult QuizResultForm(Quiz quiz)
+        {
+            var sumOfAnswers = quiz.Chocolate + quiz.Cocktail + quiz.Fruit + quiz.Vacation;
+
+            var wine = Quiz.Wines.FirstOrDefault(x => sumOfAnswers >= x.Range.Start.Value && sumOfAnswers <= x.Range.End.Value);
+
+            return View(wine);
         }
     }
 }
