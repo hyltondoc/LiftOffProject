@@ -13,6 +13,8 @@ namespace LiftOffProject.Data
         public DbSet<Wine> Wines { get; set; }
         public DbSet<WineCategory> WineCategories { get; set; }
         public DbSet<WineNote> WineNotes { get; set; }  
+
+        public DbSet<Notes> Notes { get; set; } 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

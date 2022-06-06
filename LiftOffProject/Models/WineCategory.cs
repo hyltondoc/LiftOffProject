@@ -6,10 +6,12 @@ namespace LiftOffProject.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        
-        public WineCategory(string name)
+
+        public string Flavors { get; set; }
+        public WineCategory(string name, string flavors)
         {
             Name = name;
+            Flavors = flavors;
         }
 
         public WineCategory()
