@@ -33,7 +33,7 @@ namespace LiftOffProject.Controllers
         {
             var sumOfAnswers = quiz.Chocolate + quiz.Cocktail + quiz.Fruit + quiz.Vacation;
 
-            var wine = Quiz.Wines.FirstOrDefault(x => sumOfAnswers >= x.Range.Start.Value && sumOfAnswers <= x.Range.End.Value);
+            var wine = Quiz.Wines.FirstOrDefault(wine => sumOfAnswers >= wine.Range.Start.Value && sumOfAnswers <= wine.Range.End.Value);
 
             return View(wine);
         }

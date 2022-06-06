@@ -22,5 +22,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Quiz\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\img\" />
   </ItemGroup>
 </Project>

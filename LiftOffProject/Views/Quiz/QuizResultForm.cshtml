@@ -1,7 +1,42 @@
 ﻿
 @model LiftOffProject.Models.Wine
 
-<h1>Your Wine Selection: @Model.Name</h1>
-<p>@Model.Description</p>
 
-@*How to add a picture?*@
+<h1>Your Wine Selection: @Model.Name</h1>
+<h4>@Model.Description</h4>
+
+
+@if (Model.Name == "Riesling")
+{
+    <img src="~/img/Riesling-by-Region_Germany.jpeg" alt="Riesling by Region Germany" width="400" height="400" />
+
+}
+else if (Model.Name == "Chardonnay")
+{
+    <img src="~/img/Chardonnay.jpeg" alt="Chardonnay" width="400" height="400" />
+
+}
+else if (Model.Name == "Pinot Grigio")
+{
+    <img src="~/img/Pinot-grigio.jpeg" alt="Pinot-grigio" width="400" height="400" />
+}
+else if (Model.Name == "Sauvignon Blanc")
+{
+    <img src="~/img/Sauvignon-Blanc.jpeg" alt="Sauvignon-Blanc" width="400" height="400" />
+}
+else if (Model.Name == "Merlot")
+{
+    <img src="~/img/aboutMerlot_merlot_wines.jpeg" alt="Sauvignon Blanc" width="400" height="400" />
+}
+else if (Model.Name == "Pinot Noir")
+{
+    <img src="~/img/Pinot_Noir.jpeg" alt="Pinot_Noir" width="400" height="400" />
+}
+else if (Model.Name == "Cabernet Sauvignon")
+{
+    <img src="~/img/Cabernet.jpeg" alt="Cabernet" width="400" height="400" />
+}
+else if (Model.Name == "Zinfandel")
+{
+    <img src="~/img/What-Zinfandel-tastes-like.jpeg" alt="What-Zinfandel-tastes-like.jpeg" width="400" height="400" />
+}
