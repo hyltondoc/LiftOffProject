@@ -67,7 +67,53 @@ namespace LiftOffProject.Controllers
                 }
                 ViewBag.title = "All Availabe Wines";
             }
-            ViewBag.wines = detail;
+           
+             else
+            {
+                if (column == "winecategories")
+                {
+                    wines = context.Wines
+                        .Include(j => j.Category)
+                        .Where(j => j.Category.Name == value)
+                        .ToList();
+
+                    foreach (Wine wine in wines)
+                    {
+                        List<WineNote> wineNotes = context.WineNotes
+                        .Where(js => js.WineId == wine.Id)
+                        .Include(js => js.Notes)
+                        .ToList();
+
+                        WineDetailViewModel newDisplayWine = new WineDetailViewModel(wine, wineNotes);
+                        detail.Add(newDisplayWine);
+                    }
+                }
+                else if (column == "notes")
+                {
+                    List<WineNote> wineNotes = context.WineNotes
+                        .Where(j => j.Notes.Name == value)
+                        .Include(j => j.Wine)
+                        .ToList();
+
+                    foreach (var wine in wineNotes)
+                    {
+                        Wine foundWine = context.Wines
+                            .Include(j => j.Category)
+                            .Single(j => j.Id == wine.WineId);
+
+                        List<WineNote> displayNotes = context.WineNotes
+                            .Where(js => js.WineId == foundWine.Id)
+                            .Include(js => js.Notes)
+                            .ToList();
+
+                        WineDetailViewModel newDisplayWine = new WineDetailViewModel(foundWine, displayNotes);
+                        detail.Add(newDisplayWine);
+                    }
+                }
+                ViewBag.title = "Wines with " + ColumnChoices[column] + ": " + value;
+            }
+             ViewBag.wines = detail;
+
             return View();
         }
     }

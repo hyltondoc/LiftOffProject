@@ -1,9 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<LiftOffProject.Models.Wine>
 
 <div class="text-center">
     <h1 class="display-4">Welcome To Wine Celler</h1>
-    <p><a asp-controller="Wine" asp-action="Index">List of All Wines in the Cellar</a></p>
-    <p><a asp-controller="Search" asp-action="Index">Search Wines</a></p>
+  
+    <p><a asp-controller="List" asp-action="Index">List of All Wines in the Cellar By Category</a></p>
+    <p><a asp-controller="Home" asp-action="AddWine">Add a Wine to the Cellar</a></p>
+    <p><a asp-controller="Search" asp-action="Index">Search Wines in the Cellar</a></p>
+  
+
 </div>
+
+@if (Model.Count == 0)
+{
+    <p>No Wines yet!</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>Wine Name</th>
+            <th>Category</th>
+        </tr>
+        @foreach (Wine wine in Model)
+        {
+            <tr>
+                <td><a asp-controller="Home" asp-action="Detail" asp-route-id="@wine.Id">@wine.Name</a></td>
+               @*<td>@wine.Category.Name</td>*@ 
+            </tr>
+        }
+    </table>
+}

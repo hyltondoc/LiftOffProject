@@ -1,0 +1,31 @@
+﻿@model LiftOffProject.ViewModels.AddWineViewModel;
+
+
+
+<h1>Add a Wine</h1>
+
+<form asp-controller="Home" asp-action="ProcessAddWineForm" method="post">
+    <div class="form-group">
+        <label type= "text" asp-for = "Name">Name</label>
+        <input class="form-control" asp-for="Name" />
+         <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group"> 
+
+        <label asp-for="WineCategoryId">Categories</label>
+        <select asp-for="WineCategoryId" asp-items="Model.AllWineCategories"></select>
+        <span></span>
+        <br /> <a asp-controller="WineCategory" asp-action="Add">Add A Wine</a><br />
+    </div>
+    <div class="form-group">                       
+        @foreach (Notes note in Model.Notes)
+        {
+            <label for= "@note.Id">@note.Name</label>
+            <input type="checkbox" name="selectedNotes" value="@note.Id" />
+        } 
+        <span></span>
+        <br /> <a asp-controller="Notes" asp-action="Add">Add a Notes</a><br />
+    </div>
+ <input type="submit" value="Add Wine" />
+
+</form>

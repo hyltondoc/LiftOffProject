@@ -1,0 +1,23 @@
+﻿@model List<LiftOffProject.Models.Notes>
+
+<h1>Wine Notes</h1>
+
+<p><a asp-controller="Notes" asp-action="Add">Add a Note</a></p>
+
+@if (Model.Count == 0)
+{
+    <p>No notes are currently listed!</p>
+}
+else
+{
+    <div>
+        <ul>
+            @foreach (Notes note in Model)
+            {
+                <li>
+                    <a asp-controller="Notes" asp-action="About" asp-route-id="@note.Id">@note.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+}

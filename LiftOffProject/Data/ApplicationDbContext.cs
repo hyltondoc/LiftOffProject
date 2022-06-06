@@ -1,4 +1,5 @@
 ﻿using LiftOffProject.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,6 +19,14 @@ namespace LiftOffProject.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+      
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            modelBuilder.Entity<WineNote>()
+                .HasKey(j => new { j.WineId, j.NotesId });
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
