@@ -33,7 +33,6 @@ namespace LiftOffProject.Controllers
         {
             List<Wine> wines = context.Wines.Include(j => j.WineNotes).ToList();
             return View(wines);
-<<<<<<< HEAD
         }
 
         [HttpGet("/Add")]
@@ -75,55 +74,8 @@ namespace LiftOffProject.Controllers
             context.SaveChanges();
             return Redirect("Index");
         }
-
         public IActionResult Detail(int id)
         {
-=======
-        }
-        
-        [HttpGet("/Add")]
-        public IActionResult AddWine()
-        {
-            AddWineViewModel addWineViewModel = new AddWineViewModel(context.WineCategories.ToList(), context.Notes.ToList());
-
-            return View(addWineViewModel);
-        }
-
-        [HttpPost]
-        public IActionResult ProcessAddWineForm(AddWineViewModel addWineViewModel, string[] selectedNotes)
-        {
-
-            Wine newwine = new Wine
-            {
-                Name = addWineViewModel.Name,
-                CategoryId = addWineViewModel.CategoryId
-
-
-            };
-
-
-            foreach (string notesId in selectedNotes)
-            {
-                WineNote wineNotes = new WineNote
-                {
-                    Wine = newwine,
-                    WineId = newwine.Id,
-                    NotesId = Int32.Parse(notesId)
-                };
-
-
-                context.WineNotes.Add(wineNotes);
-
-            }
-
-            context.Wines.Add(newwine);
-            context.SaveChanges();
-            return Redirect("Index");
-        }
-
-        public IActionResult Detail(int id)
-        {
->>>>>>> main
             Wine theWine = context.Wines
                 .Include(j => j.Category)
                 .Single(j => j.Id == id);
@@ -136,13 +88,6 @@ namespace LiftOffProject.Controllers
             WineDetailViewModel viewModel = new WineDetailViewModel(theWine, wineNotes);
             return View(viewModel);
         }
-
-
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> main
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

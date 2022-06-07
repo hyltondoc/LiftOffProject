@@ -6,16 +6,22 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome To Wine Celler</h1>
-<<<<<<< HEAD
+
     @*make these buttons instead of links*@
-=======
+
   @*make these buttons instead of links*@
->>>>>>> main
+
     <p><a asp-controller="List" asp-action="Index">List of All Wines in the Cellar</a></p>
     <p><a asp-controller="Home" asp-action="AddWine">Add a Wine to the Cellar</a></p>
     <p><a asp-controller="Search" asp-action="Index">Search Wines in the Cellar</a></p>
     <p><a asp-controller="WineCategory" asp-action="Add">Add a Category to the Cellar</a></p>
     <p><a asp-controller="Notes" asp-action="Add">Add a Note to the Cellar</a></p>
+</div>
+
+<div>
+  <h1>Don't Know What Type of Wine You Like?</h1>
+  <h2>Take Our Wine Quiz!</h2>
+  <p><a asp-controller="Quiz" asp-action="QuizForm">Click Here!</a></p>
 </div>
 
 @if (Model.Count == 0)

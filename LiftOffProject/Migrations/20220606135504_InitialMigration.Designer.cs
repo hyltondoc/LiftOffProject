@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LiftOffProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<< HEAD:LiftOffProject/Migrations/20220602020303_InitialMigration.Designer.cs
-    [Migration("20220602020303_InitialMigration")]
-=======
+
+
+
     [Migration("20220606135504_InitialMigration")]
->>>>>>> main:LiftOffProject/Migrations/20220606135504_InitialMigration.Designer.cs
+
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
