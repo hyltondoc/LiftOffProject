@@ -1,0 +1,58 @@
+﻿
+@model LiftOffProject.Models.Wine
+
+
+<h1>Your Wine Selection: @Model.Name</h1>
+<h4>@Model.Description</h4>
+
+
+@if (Model.Name == "Riesling")
+{
+    <img src="~/img/BGM_Riesling.png" alt="BGM_Riesling" />
+    <p>Black Girl Magic Riesling</p>
+    <p>Price: $19.99</p>
+
+}
+else if (Model.Name == "Chardonnay")
+{
+    <img src="~/img/MSC_Chardonnay_2020.png" alt="MSC_Chardonnay_2020" />
+    <p>McBride Sisters Collection Chardonnay Central Coast California</p>
+    <p>Price: $16.99</p>
+
+}
+else if (Model.Name == "Pinot Grigio")
+{
+    <img src="~/img/MSC_Pinot_Gris.png" alt="MSC_Pinot_Gris" />
+    <p>McBride Sisters Collection Marlborough Pinot Gris</p>
+    <p>Price: $16.99</p>
+}
+else if (Model.Name == "Sauvignon Blanc")
+{
+    <img src="~/img/MSC_Sauvignon_Blanc.png" alt="MSC_Sauvignon_Blanc" />
+    <p>McBride Sisters Collection Sauvignon Blanc Marlborough New Zealand</p>
+    <p>Price: $16.99</p>
+}
+else if (Model.Name == "Merlot")
+{
+    <img src="~/img/BGM_Merlot.png" alt="BGM_Merlot" />
+    <p>Black Girl Magic Merlot</p>
+    <p>Price: $24.99</p>
+}
+else if (Model.Name == "Pinot Noir")
+{
+    <img src="~/img/Pinot_Noir.png" alt="Pinot_Noir" />
+    <p>McBride Sisters Collection Reserve Pinot Noir</p>
+    <p>Price: $69.99</p>
+}
+else if (Model.Name == "Cabernet Sauvignon")
+{
+    <img src="~/img/MSC_Red_Blend_2020.png" alt="MSC_Red_Blend_2020" />
+    <p>McBride Sisters Collection Red Blend</p>
+    <p>Price: $18.99</p>
+}
+else if (Model.Name == "Zinfandel")
+{
+    <img src="~/img/BGM_Zinfandel.png" alt="BGM_Zinfandel" />
+    <p>Black Girl Magic Zinfandel</p>
+    <p>Price: $24.99</p>
+}
