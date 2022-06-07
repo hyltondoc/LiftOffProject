@@ -9,14 +9,13 @@ namespace LiftOffProject.Models
         public string Name { get; set; }
 
         public string Flavors { get; set; }
+        public WineCategory()
+        {
+        }
         public WineCategory(string name, string flavors)
         {
             Name = name;
             Flavors = flavors;
-        }
-
-        public WineCategory()
-        {
         }
     }
 }

@@ -2,7 +2,7 @@
 
 
 
-<h1>Add a Wine</h1>
+<h1>Add a Wine!</h1>
 
 <form asp-controller="Home" asp-action="ProcessAddWineForm" method="post">
     <div class="form-group">
@@ -12,8 +12,8 @@
     </div>
     <div class="form-group"> 
 
-        <label asp-for="WineCategoryId">Categories</label>
-        <select asp-for="WineCategoryId" asp-items="Model.AllWineCategories"></select>
+        <label asp-for="CategoryId">Categories</label>
+        <select asp-for="CategoryId" asp-items="Model.AllWineCategories"></select>
         <span></span>
         <br /> <a asp-controller="WineCategory" asp-action="Add">Add A Wine</a><br />
     </div>

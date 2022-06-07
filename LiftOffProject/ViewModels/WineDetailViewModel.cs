@@ -22,9 +22,9 @@ namespace LiftOffProject.ViewModels
             for (int i = 0; i < wineNotes.Count; i++)
             {
                 NotesText += wineNotes[i].Notes.Name;
-                if (i< wineNotes.Count - 1)
+                if (i < wineNotes.Count - 1)
                 {
-                    NotesText += ",";
+                    NotesText += ", ";
                 }
             }
         }

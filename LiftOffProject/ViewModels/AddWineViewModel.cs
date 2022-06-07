@@ -10,7 +10,7 @@ namespace LiftOffProject.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
-        public int WineCategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public List<SelectListItem> AllWineCategories { get; set; }
         public List<Notes> Notes { get; set; }

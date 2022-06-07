@@ -1,4 +1,6 @@
-﻿namespace LiftOffProject.Models
+﻿using System;
+
+namespace LiftOffProject.Models
 {
     public class Notes
     {

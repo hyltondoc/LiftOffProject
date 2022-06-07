@@ -16,14 +16,14 @@ namespace LiftOffProject.Controllers
         internal static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
         {
             {"all", "All" },
-            {"red", "Red" },
-            {"white", "White"}
+            {"category", "category" },
+            {"note", "note"}
         };
 
         internal static List<string> TableChoices = new List<string>()
         {
-            "winecategory",
-            "notes"
+            "category",
+            "note"
         };
 
         private ApplicationDbContext context;
@@ -37,7 +37,7 @@ namespace LiftOffProject.Controllers
         {
             ViewBag.columns = ColumnChoices;
             ViewBag.tablechoices = TableChoices;
-            ViewBag.winecategory = context.WineCategories.ToList();
+            ViewBag.winecategories = context.WineCategories.ToList();
             ViewBag.notes = context.Notes.ToList();
 
             return View();
@@ -46,7 +46,7 @@ namespace LiftOffProject.Controllers
         public IActionResult Wine(string column, string value)
         {
             List<Wine> wines = new List<Wine>();
-            List<WineDetailViewModel> detail = new List<WineDetailViewModel>();
+            List<WineDetailViewModel> displayWines = new List<WineDetailViewModel>();
 
             if (column.ToLower().Equals("all"))
             {
@@ -63,14 +63,14 @@ namespace LiftOffProject.Controllers
                         .ToList();
 
                     WineDetailViewModel newDisplayWine = new WineDetailViewModel(wine, wineNotes);
-                    detail.Add(newDisplayWine);
+                    displayWines.Add(newDisplayWine);
                 }
                 ViewBag.title = "All Availabe Wines";
             }
            
              else
             {
-                if (column == "winecategories")
+                if (column == "category")
                 {
                     wines = context.Wines
                         .Include(j => j.Category)
@@ -85,10 +85,10 @@ namespace LiftOffProject.Controllers
                         .ToList();
 
                         WineDetailViewModel newDisplayWine = new WineDetailViewModel(wine, wineNotes);
-                        detail.Add(newDisplayWine);
+                       displayWines.Add(newDisplayWine);
                     }
                 }
-                else if (column == "notes")
+                else if (column == "note")
                 {
                     List<WineNote> wineNotes = context.WineNotes
                         .Where(j => j.Notes.Name == value)
@@ -107,12 +107,12 @@ namespace LiftOffProject.Controllers
                             .ToList();
 
                         WineDetailViewModel newDisplayWine = new WineDetailViewModel(foundWine, displayNotes);
-                        detail.Add(newDisplayWine);
+                        displayWines.Add(newDisplayWine);
                     }
                 }
                 ViewBag.title = "Wines with " + ColumnChoices[column] + ": " + value;
             }
-             ViewBag.wines = detail;
+             ViewBag.wines = displayWines;
 
             return View();
         }

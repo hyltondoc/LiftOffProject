@@ -25,6 +25,12 @@ namespace LiftOffProject.Controllers
            
         }
 
+        public IActionResult Add()
+        {
+            Notes notes = new Notes();
+            return View(notes);
+        }
+
         [HttpPost]
         public IActionResult Add(Notes notes)
         {

@@ -42,6 +42,7 @@ namespace LiftOffProject.Controllers
 
             return View(addWineViewModel);
         }
+
         [HttpPost]
         public IActionResult ProcessAddWineForm(AddWineViewModel addWineViewModel, string[] selectedNotes)
         {
@@ -49,7 +50,7 @@ namespace LiftOffProject.Controllers
             Wine newwine = new Wine
             {
                 Name = addWineViewModel.Name,
-                CategoryId = addWineViewModel.WineCategoryId
+                CategoryId = addWineViewModel.CategoryId
 
 
             };
@@ -61,7 +62,7 @@ namespace LiftOffProject.Controllers
                 {
                     Wine = newwine,
                     WineId = newwine.Id,
-                    NotesId = int.Parse(notesId)
+                    NotesId = Int32.Parse(notesId)
                 };
 
 
@@ -77,7 +78,7 @@ namespace LiftOffProject.Controllers
         public IActionResult Detail(int id)
         {
             Wine theWine = context.Wines
-                .Include(j => j.WineNotes)
+                .Include(j => j.Category)
                 .Single(j => j.Id == id);
 
             List<WineNote> wineNotes = context.WineNotes
@@ -92,10 +93,10 @@ namespace LiftOffProject.Controllers
 
  
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }
