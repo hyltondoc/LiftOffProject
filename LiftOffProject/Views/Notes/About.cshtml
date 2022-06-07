@@ -1,0 +1,19 @@
+﻿@model List<LiftOffProject.Models.WineNote>
+
+@if (Model.Count == 0)
+{
+    <h1>No wines with the given notes!</h1>
+}
+else
+{
+    <h1>Wines with the Note: @Model[0].Notes.Name</h1>
+    <p>Note Description: @Model[0].Notes.Description</p>
+
+    <ul>
+        @foreach (var wineNote in Model)
+        {
+            <li>@wineNote.Wine.Name</li>
+        }
+    </ul>
+
+}

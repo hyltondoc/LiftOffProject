@@ -1,0 +1,13 @@
+﻿@model LiftOffProject.ViewModels.AddWineNoteViewModel
+
+<h1>Add Tag to Event: @Model.Wine.Name</h1>
+
+<form asp-controller="Notes" asp-action="AddWine" method="post">
+    <input type="hidden" value="@Model.Wine.Id" name="WineId" />
+    <div class="form-group">
+        <label asp-for="NotesId">Notes</label>
+        <select asp-for="NotesId" asp-items="Model.Notes"></select>
+        <span asp-validation-for="NotesId"></span>
+    </div>
+    <input type="submit" value="Add Note" />
+</form>
