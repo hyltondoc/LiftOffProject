@@ -3,13 +3,13 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace LiftOffProject.Models
 {
-    public class Wine
+    public class WineQuiz
     {
         public string Name { get; set; }
         public Range Range { get; set; }
         public string Description { get; set; }
      
-        public Wine(string name, Range range, string description)
+        public WineQuiz(string name, Range range, string description)
         {
             Name = name;
             Range = range;
