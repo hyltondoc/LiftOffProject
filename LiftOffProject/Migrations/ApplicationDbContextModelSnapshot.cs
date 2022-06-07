@@ -17,6 +17,74 @@ namespace LiftOffProject.Migrations
                 .HasAnnotation("ProductVersion", "3.1.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("LiftOffProject.Models.Notes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notes");
+                });
+
+            modelBuilder.Entity("LiftOffProject.Models.Wine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Wines");
+                });
+
+            modelBuilder.Entity("LiftOffProject.Models.WineCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Flavors")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WineCategories");
+                });
+
+            modelBuilder.Entity("LiftOffProject.Models.WineNote", b =>
+                {
+                    b.Property<int>("WineId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NotesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WineId", "NotesId");
+
+                    b.HasIndex("NotesId");
+
+                    b.ToTable("WineNotes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -211,6 +279,30 @@ namespace LiftOffProject.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("LiftOffProject.Models.Wine", b =>
+                {
+                    b.HasOne("LiftOffProject.Models.WineCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LiftOffProject.Models.WineNote", b =>
+                {
+                    b.HasOne("LiftOffProject.Models.Notes", "Notes")
+                        .WithMany()
+                        .HasForeignKey("NotesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LiftOffProject.Models.Wine", "Wine")
+                        .WithMany("WineNotes")
+                        .HasForeignKey("WineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
