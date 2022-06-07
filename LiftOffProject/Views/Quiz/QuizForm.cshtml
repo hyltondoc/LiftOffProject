@@ -12,7 +12,7 @@
     <p>Everyone loves chocolate...Right??? Which type of chocolate do you prefer?</p>
     @foreach (var chocolate in Model.Chocolates)
     {
-        <input type="radio" asp-for="Chocolate" value="@chocolate.Value">
+        <input type="radio" asp-for="Chocolate" value="@chocolate.Value"> //bound to model class
         <label asp-for="Chocolate">@chocolate.Key</label><br>
     }
 
