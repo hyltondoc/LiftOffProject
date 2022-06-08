@@ -17,8 +17,8 @@ namespace LiftOffProject.Controllers
         internal static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
         {
             {"all", "All" },
-            {"category", "WineCategory" },
-            {"note", "WineNote"}
+            {"category", "Wine Category" },
+            {"note", "Wine Note"}
         };
 
         internal static List<string> TableChoices = new List<string>()

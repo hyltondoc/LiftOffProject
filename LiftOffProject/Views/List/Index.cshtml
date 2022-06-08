@@ -18,9 +18,9 @@
         {
             <td>
                 <ul>
-                    @if (category == "winecategory")
+                    @if (category == "category")
                     {
-                        @foreach (var item in ViewBag.winecategory)
+                        @foreach (var item in ViewBag.winecategories)
                         {
                             <li>
                                 <a asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name</a>
