@@ -7,17 +7,18 @@ using LiftOffProject.Models;
 using LiftOffProject.Data;
 using Microsoft.EntityFrameworkCore;
 using LiftOffProject.ViewModels;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class ListController : Controller
     {
         internal static Dictionary<string, string> ColumnChoices = new Dictionary<string, string>()
         {
             {"all", "All" },
-            {"category", "category" },
-            {"note", "note"}
+            {"category", "WineCategory" },
+            {"note", "WineNote"}
         };
 
         internal static List<string> TableChoices = new List<string>()
@@ -48,7 +49,7 @@ namespace LiftOffProject.Controllers
             List<Wine> wines = new List<Wine>();
             List<WineDetailViewModel> displayWines = new List<WineDetailViewModel>();
 
-            if (column.ToLower().Equals("all"))
+            if (column.ToLower().Equals("all")) 
             {
                 wines = context.Wines
                     .Include(j => j.Category)

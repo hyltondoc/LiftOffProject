@@ -6,11 +6,11 @@ using LiftOffProject.Models;
 using LiftOffProject.Data;
 using Microsoft.EntityFrameworkCore;
 using LiftOffProject.ViewModels;
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class SearchController : Controller
     {
         private ApplicationDbContext context;

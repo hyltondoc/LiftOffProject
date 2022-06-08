@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using LiftOffProject.Models;
 using LiftOffProject.ViewModels;
 using LiftOffProject.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class NotesController : Controller
     {
         private ApplicationDbContext context;
