@@ -112,7 +112,6 @@ namespace LiftOffProject.Controllers
 
             return Redirect("/List");
         }
-
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()
         //{
