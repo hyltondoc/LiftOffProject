@@ -7,9 +7,11 @@ using LiftOffProject.Models;
 using LiftOffProject.Data;
 using LiftOffProject.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class WineCategoryController : Controller
     {
         private ApplicationDbContext context;

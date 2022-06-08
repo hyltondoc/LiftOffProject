@@ -1,0 +1,16 @@
+﻿<h1>Delete a Wine</h1>
+
+<form method="post">
+    @foreach (var wine in ViewBag.wines)
+    {
+        <div class="form-group">
+            <label>
+                <span>@wine.Name</span>
+                <input type="checkbox" name="wineIds" value="@wine.Id" class="form-control">
+            </label>
+        </div>
+    }
+
+    <input type="submit" value="Delete Selected Winess" class="btn btn-danger">
+
+</form>

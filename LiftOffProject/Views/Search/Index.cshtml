@@ -26,7 +26,7 @@
 
     <hr />
 
-    @if (ViewBag.jobs != null)
+    @if (ViewBag.wines != null)
     {
         <table>
             @foreach (var wine in ViewBag.wines)
@@ -35,8 +35,8 @@
                     <td>
                         <p>ID: @wine.WineId</p>
                         <p>Name: @wine.Name</p>
-                        <p>Employer: @wine.WineCategoryName</p>
-                        <p>Location: @wine.NoteText</p>
+                        <p>Category: @wine.WineCategoryName</p>
+                        <p>Notes: @wine.NotesText</p>
                     </td>
                 </tr>
             }

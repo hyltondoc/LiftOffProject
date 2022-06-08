@@ -6,11 +6,12 @@ using LiftOffProject.Models;
 using LiftOffProject.Data;
 using Microsoft.EntityFrameworkCore;
 using LiftOffProject.ViewModels;
-
-
+using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class SearchController : Controller
     {
         private ApplicationDbContext context;
@@ -30,7 +31,7 @@ namespace LiftOffProject.Controllers
         public IActionResult Results(string searchType, string searchTerm)
         {
             List<Wine> wines;
-            List<WineDetailViewModel> wineDetailViewModels = new List<WineDetailViewModel>();
+            List<WineDetailViewModel> displayWines = new List<WineDetailViewModel>();
 
             if(string.IsNullOrEmpty(searchTerm))
             {
@@ -46,12 +47,12 @@ namespace LiftOffProject.Controllers
                         .ToList();
 
                     WineDetailViewModel newDisplayWine = new WineDetailViewModel(wine, wineNotes);
-                    wineDetailViewModels.Add(newDisplayWine);
+                    displayWines.Add(newDisplayWine);
                 }
             }
             else
             {
-                if (searchType == "winecategory")
+                if (searchType == "category")
                 {
                     wines = context.Wines
                         .Include(j => j.Category)
@@ -66,11 +67,11 @@ namespace LiftOffProject.Controllers
                         .ToList();
 
                         WineDetailViewModel newDisplayWine = new WineDetailViewModel(wine, wineNotes);
-                        wineDetailViewModels.Add(newDisplayWine);
+                        displayWines.Add(newDisplayWine);
                     }
 
                 }
-                else if (searchType == "notes")
+                else if (searchType == "note")
                 {
                     List<WineNote> wineNotes = context.WineNotes
                         .Where(j => j.Notes.Name == searchTerm)
@@ -89,14 +90,14 @@ namespace LiftOffProject.Controllers
                             .ToList();
 
                         WineDetailViewModel newDisplayWine = new WineDetailViewModel(foundWine, displayNotes);
-                        wineDetailViewModels.Add(newDisplayWine);
+                        displayWines.Add(newDisplayWine);
                     }
                 }
             }
 
             ViewBag.columns = ListController.ColumnChoices;
             ViewBag.title = "Wines with " + ListController.ColumnChoices[searchType] + ": " + searchTerm;
-            ViewBag.jobs = wineDetailViewModels;
+            ViewBag.wines = displayWines;
 
             return View("Index");
 

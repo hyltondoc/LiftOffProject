@@ -10,11 +10,14 @@ using LiftOffProject.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LiftOffProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LiftOffProject.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+       
         //private readonly ILogger<HomeController> _logger;
 
         //public HomeController(ILogger<HomeController> logger)
@@ -87,6 +90,27 @@ namespace LiftOffProject.Controllers
 
             WineDetailViewModel viewModel = new WineDetailViewModel(theWine, wineNotes);
             return View(viewModel);
+        }
+
+        public IActionResult Delete()
+        {
+            ViewBag.wines = context.Wines.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] wineIds)
+        {
+            foreach (int wineId in wineIds)
+            {
+                Wine theWine = context.Wines.Find(wineId);
+                context.Wines.Remove(theWine);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/List");
         }
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
