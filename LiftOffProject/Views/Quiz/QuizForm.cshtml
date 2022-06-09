@@ -5,80 +5,87 @@
 }
 
 
+
 @model LiftOffProject.Models.Quiz
 
-<h1>Take Our Wine Quiz!</h1>
-<form method="post" action="Quiz">
-    <p>Everyone loves chocolate...Right??? Which type of chocolate do you prefer?</p>
-    @foreach (var chocolate in Model.Chocolates)
-    {
-        <input type="radio" asp-for="Chocolate" value="@chocolate.Value"> //bound to model class
-        <label asp-for="Chocolate">@chocolate.Key</label><br>
-    }
+    <h1 style="color:antiquewhite">Take Our Wine Quiz!</h1>
+  
+        <div class="tenor-gif-embed" data-postid="11337162" data-share-method="host" data-aspect-ratio="1" data-width="40%"><a href="https://tenor.com/view/julius-stir-wine-liquor-fancy-gif-11337162">Julius Stir GIF</a>from <a href="https://tenor.com/search/julius-gifs">Julius GIFs</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+ 
+   
+    <form method="post" action="Quiz" style="color:antiquewhite">
+        <h3>Everyone loves chocolate...Right??? Which type of chocolate do you prefer?</h3>
+        @foreach (var chocolate in Model.Chocolates)
+        {
+            <input type="radio" asp-for="Chocolate" value="@chocolate.Value"> //bound to model class
+            <label asp-for="Chocolate">@chocolate.Key</label><br>
+        }
 
-    @*<input type="radio" id="milk chocolate" name="question_one" value="Milk Chocolate">
-        <label for="milk chocolate">Milk Chocolate</label><br>
-        <input type="radio" id="dark chocolate" name="question_one" value="Dark Chocolate">
-        <label for="dark chocolate">Dark Chocolate</label><br>
-        <input type="radio" id="hate" name="question_one" value="I HATE Chocolate">
-        <label for="hate">I HATE Chocolate!</label>*@
+        @*<input type="radio" id="milk chocolate" name="question_one" value="Milk Chocolate">
+            <label for="milk chocolate">Milk Chocolate</label><br>
+            <input type="radio" id="dark chocolate" name="question_one" value="Dark Chocolate">
+            <label for="dark chocolate">Dark Chocolate</label><br>
+            <input type="radio" id="hate" name="question_one" value="I HATE Chocolate">
+            <label for="hate">I HATE Chocolate!</label>*@
 
-    <br>
-    <p>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</p>
-    @foreach (var cocktail in Model.Cocktails)
-    {
-        <input type="radio" asp-for="Cocktail" value="@cocktail.Value">
-        <label asp-for="Cocktail">@cocktail.Key</label><br>
-    }
-    @*<p>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</p>
-        <input type="radio" id="margarita" name="question_two" value="Margarita">
-        <label for="margarita">Margarita</label><br>
-        <input type="radio" id="gin_tonic" name="question_two" value="Gin & Tonic">
-        <label for="gin_tonic">Gin & Tonic</label><br>
-        <input type="radio" id="old_fashioned" name="question_two" value="Old Fashioned">
-        <label for="old_fashioned">Old Fashioned</label><br>
-        <input type="radio" id="vodka_cran" name="question_two" value="Vodka Cranberry">
-        <label for="vodka_cran">Vodka Cranberry</label>*@
+        <br>
+        <h3>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</h3>
+        @foreach (var cocktail in Model.Cocktails)
+        {
+            <input type="radio" asp-for="Cocktail" value="@cocktail.Value">
+            <label asp-for="Cocktail">@cocktail.Key</label><br>
+        }
+        @*<p>It’s happy hour!!! Which of these four cocktails are you drinking from 4 – 7?!</p>
+            <input type="radio" id="margarita" name="question_two" value="Margarita">
+            <label for="margarita">Margarita</label><br>
+            <input type="radio" id="gin_tonic" name="question_two" value="Gin & Tonic">
+            <label for="gin_tonic">Gin & Tonic</label><br>
+            <input type="radio" id="old_fashioned" name="question_two" value="Old Fashioned">
+            <label for="old_fashioned">Old Fashioned</label><br>
+            <input type="radio" id="vodka_cran" name="question_two" value="Vodka Cranberry">
+            <label for="vodka_cran">Vodka Cranberry</label>*@
 
-    <br>
+        <br>
 
-    <p>If you could only eat one fruit for the rest of your life, which fruit would you pick?</p>
-    @foreach (var fruit in Model.Fruits)
-    {
-        <input type="radio" asp-for="Fruit" value="@fruit.Value">
-        <label asp-for="Fruit">@fruit.Key</label><br>
-    }
-    @*<p>If you could only eat one fruit for the rest of your life, which fruit would you pick?</p>
-        <input type="radio" id="cherries" name="question_three" value="Cherries">
-        <label for="cherries">Cherries</label><br>
-        <input type="radio" id="apples" name="question_three" value="Apples">
-        <label for="apples">Apples</label><br>
-        <input type="radio" id="peaches" name="question_three" value="Peaches">
-        <label for="peaches">Peaches</label><br>
-        <input type="radio" id="dark_plums" name="question_three" value="Dark Plums">
-        <label for="dark_plums">Dark Plums</label>*@
+        <h3>If you could only eat one fruit for the rest of your life, which fruit would you pick?</h3>
+        @foreach (var fruit in Model.Fruits)
+        {
+            <input type="radio" asp-for="Fruit" value="@fruit.Value">
+            <label asp-for="Fruit">@fruit.Key</label><br>
+        }
+        @*<p>If you could only eat one fruit for the rest of your life, which fruit would you pick?</p>
+            <input type="radio" id="cherries" name="question_three" value="Cherries">
+            <label for="cherries">Cherries</label><br>
+            <input type="radio" id="apples" name="question_three" value="Apples">
+            <label for="apples">Apples</label><br>
+            <input type="radio" id="peaches" name="question_three" value="Peaches">
+            <label for="peaches">Peaches</label><br>
+            <input type="radio" id="dark_plums" name="question_three" value="Dark Plums">
+            <label for="dark_plums">Dark Plums</label>*@
 
-    <br>
+        <br>
 
-    <p>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</p>
-    @foreach (var vacation in Model.Vacations)
-    {
-        <input type="radio" asp-for="Vacation" value="@vacation.Value">
-        <label asp-for="Vacation">@vacation.Key</label><br>
-    }
+        <h3>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</h3>
+        @foreach (var vacation in Model.Vacations)
+        {
+            <input type="radio" asp-for="Vacation" value="@vacation.Value">
+            <label asp-for="Vacation">@vacation.Key</label><br>
+        }
 
-    @*<p>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</p>
-        <input type="radio" id="paris_france" name="question_four" value="Paris, France">
-        <label for="paris_france">Paris, France</label><br>
-        <input type="radio" id="turks" name="question_four" value="Turks & Caicos">
-        <label for="turks">Turks & Caicos</label><br>
-        <input type="radio" id="sydney" name="question_four" value="Sydney, Australia">
-        <label for="sydney">Sydney, Australia</label><br>
-        <input type="radio" id="falls" name="question_four" value="Victoria Falls, Zambia">
-        <label for="falls">Victoria Falls, Zambia</label>*@
+        @*<p>You’ve been given two free tickets to ANYWHERE in the world!! Where are you going on vacation?!</p>
+            <input type="radio" id="paris_france" name="question_four" value="Paris, France">
+            <label for="paris_france">Paris, France</label><br>
+            <input type="radio" id="turks" name="question_four" value="Turks & Caicos">
+            <label for="turks">Turks & Caicos</label><br>
+            <input type="radio" id="sydney" name="question_four" value="Sydney, Australia">
+            <label for="sydney">Sydney, Australia</label><br>
+            <input type="radio" id="falls" name="question_four" value="Victoria Falls, Zambia">
+            <label for="falls">Victoria Falls, Zambia</label>*@
 
-    <br>
+        <br>
 
-    <input type="submit" value="Gimme My Wine!" />
+        <input type="submit" value="Gimme My Wine!" />
 
-</form>
+    </form>
+ 
