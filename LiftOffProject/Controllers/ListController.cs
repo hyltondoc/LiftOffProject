@@ -40,9 +40,12 @@ namespace LiftOffProject.Controllers
             ViewBag.tablechoices = TableChoices;
             ViewBag.winecategories = context.WineCategories.ToList();
             ViewBag.notes = context.Notes.ToList();
+            ViewBag.wines = context.Wines.Include(j => j.WineNotes).ToList();
 
             return View();
         }
+        
+      
 
         public IActionResult Wine(string column, string value)
         {

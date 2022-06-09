@@ -75,7 +75,7 @@ namespace LiftOffProject.Controllers
 
             context.Wines.Add(newwine);
             context.SaveChanges();
-            return Redirect("Index");
+            return Redirect("/List");
         }
         public IActionResult Detail(int id)
         {

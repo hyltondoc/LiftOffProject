@@ -76,7 +76,7 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 1);
 }
 
 button.accept-policy {
@@ -95,13 +95,9 @@ body {
 
     /*Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: rgba(139,0,0);
-   
-
-    margin-bottom: 60px;
-    background-color: rgba(139,0,0);
-
+    background-color: rgba(139,0,0, 0.8);
 }
+
 .footer {
   position: absolute;
   bottom: 0;

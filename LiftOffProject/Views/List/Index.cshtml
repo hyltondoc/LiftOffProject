@@ -32,7 +32,7 @@
                         @foreach (var item in ViewBag.notes)
                         {
                             <li>
-                                <a asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name</a>
+                                <a asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name : @item.Description</a>
                             </li>
                         }
                     }
@@ -42,3 +42,18 @@
         }
     </tr>
 </table>
+
+    <table class="table">
+        <tr>
+            <th>Wine Name</th>
+            @*<th>Flavor</th>*@
+        </tr>
+        @foreach (var wine in ViewBag.wines)
+        {
+            <tr>
+                <td><a asp-controller="Home" asp-action="Detail" asp-route-id="@wine.Id">@wine.Name</a></td>
+                @*<td>@wine.Category</td>@* category.name doesn't return an object. Investigate or remove*@
+            </tr>
+        }
+    </table>
+
