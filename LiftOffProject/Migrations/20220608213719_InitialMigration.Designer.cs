@@ -9,11 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LiftOffProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-
-
-
-    [Migration("20220606135504_InitialMigration")]
-
+    [Migration("20220608213719_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
