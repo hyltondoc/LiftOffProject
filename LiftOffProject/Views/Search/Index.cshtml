@@ -3,21 +3,21 @@
     <h1>@ViewBag.title</h1>
 
     <form action="/search/results" method="post">
-        <h2>Search by:</h2>
+        <h2 style="color:#74FFFF">Search by:</h2>
 
         <p>
             @foreach (var column in ViewBag.columns)
             {
                 <span>
                     <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key == 'all'" />
-                    <label for="@column.Key">@column.Value</label>
+                    <label style="color:white" for="@column.Key">@column.Value</label>
                 </span>
             }
 
         </p>
 
         <p>
-            <label for="searchTerm">Keyword:</label>
+            <label style="color:white" for="searchTerm">Keyword:</label>
             <input type="text" name="searchTerm" id="searchTerm" />
         </p>
 
@@ -33,10 +33,10 @@
             {
                 <tr>
                     <td>
-                        <p>ID: @wine.WineId</p>
-                        <p>Name: @wine.Name</p>
-                        <p>Category: @wine.WineCategoryName</p>
-                        <p>Notes: @wine.NotesText</p>
+                        <p style="color:white" >ID: @wine.WineId</p>
+                        <p style="color:white" >Name: @wine.Name</p>
+                        <p style="color:white" >Category: @wine.WineCategoryName</p>
+                        <p style="color:white" >Notes: @wine.NotesText</p>
                     </td>
                 </tr>
             }

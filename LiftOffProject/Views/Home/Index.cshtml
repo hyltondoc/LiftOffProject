@@ -5,25 +5,36 @@
 
 
 <div class="text-center">
-    <h1 style="color:antiquewhite" class="display-4">Welcome To Wine Celler</h1>
+   <h1 style="color:#74FFFF" class="display-4.font-weight-bold">Welcome To Wine Celler</h1>
 
-    @*make these buttons instead of links*@
+    <button onclick="location.href='@Url.Action("Index", "List")';return false;">List of All Wines in the Cellar</button>
+    <button onclick="location.href='@Url.Action("AddWine", "Home")';return false;">Add a Wine to the Cellar</button>
+    <button onclick="location.href='@Url.Action("Index", "Search")';return false;">Search Wines in the Cellar</button>
+    <button onclick="location.href='@Url.Action("Add", "WineCategory")';return false;">Add a Category in the Cellar</button>
+    <button onclick="location.href='@Url.Action("Add", "Notes")';return false;">Add a Note to the Cellar</button>
+    <button onclick="location.href='@Url.Action("Delete", "Home")';return false;">Delete Wines in the Cellar</button>
 
-    <button><a class="btn default" asp-controller="List" asp-action="Index">List of All Wines in the Cellar</a></button>
+
+    @*<button><a class="btn default" asp-controller="List" asp-action="Index">List of All Wines in the Cellar</a></button>
     <button><a class="btn default" asp-controller="Home" asp-action="AddWine">Add a Wine to the Cellar</a></button>
     <button><a class="btn default" asp-controller="Search" asp-action="Index">Search Wines in the Cellar</a></button>
     <button><a class="btn default" asp-controller="WineCategory" asp-action="Add">Add a Category to the Cellar</a></button>
     <button><a class="btn default" asp-controller="Notes" asp-action="Add">Add a Note to the Cellar</a></button>
-    <button><a class="btn default" asp-controller="Home" asp-action="Delete">Delete Wine</a></button>
+    <button><a class="btn default" asp-controller="Home" asp-action="Delete">Delete Wine</a></button>*@
 </div>
+<br/>
+<br />
 
+@*<div class="container" style = "display: flex; height:100px;">*@
 <div class="text-center">
-    <h2 style="color:antiquewhite">Don't Know What Type of Wine You Like?</h2>
-    <h3 style="color:antiquewhite">Take Our Wine Quiz!</h3>
-    <button><a class="btn default" asp-controller="Quiz" asp-action="QuizForm">Click Here!</a></button>
+    <h2 style="color:white" class="display-5.font-weight-bold">Don't Know What Type of Wine You Like?</h2>
+    <h3 style="color:white" class="display-6.font-weight-bold">Take Our Wine Quiz!</h3>
+    <button onclick="location.href='@Url.Action("QuizForm", "Quiz")';return false;">Click Here!</button>
+   @* <button><a class="btn default" asp-controller="Quiz" asp-action="QuizForm">Click Here!</a></button>*@
 </div>
 
 <div class="center">
-    <div class="tenor-gif-embed" data-postid="15465402" data-share-method="host" data-aspect-ratio="1.33891" data-width="100%"><a href="https://tenor.com/view/betty-white-wine-cheers-drinks-red-wine-gif-15465402">Betty White Wine GIF</a>from <a href="https://tenor.com/search/betty+white-gifs">Betty White GIFs</a></div>
+    <div class="tenor-gif-embed" style="display: flex" data-postid="15465402" data-share-method="host" data-aspect-ratio="1.33891" data-width="100%"><a href="https://tenor.com/view/betty-white-wine-cheers-drinks-red-wine-gif-15465402">Betty White Wine GIF</a>from <a href="https://tenor.com/search/betty+white-gifs">Betty White GIFs</a></div>
     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </div>
+@*</div>*@

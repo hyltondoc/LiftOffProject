@@ -1,17 +1,17 @@
 ﻿@model LiftOffProject.ViewModels.WineDetailViewModel
 
-<h1>@Model.Name</h1>
+<h1 style="color:#74FFFF">@Model.Name</h1>
 
 <table class="table">
     <tr>
-        <th>Category</th>
-        <td>@Model.WineCategoryName</td>
+        <th style="color:white">Category</th>
+        <td style="color:white">@Model.WineCategoryName</td>
     </tr>
     <tr>
-        <th>Notes</th>
-        <td>@Model.NotesText</td>
+        <th style="color:white">Notes</th>
+        <td style="color:white">@Model.NotesText</td>
     </tr>
 
 </table>
 
-<a asp-controller="Notes" asp-action="AddWine" asp-route-id="@Model.WineId">Add additional notes</a>
+<a style="color:white" asp-controller="Notes" asp-action="AddWine" asp-route-id="@Model.WineId">Add additional notes</a>

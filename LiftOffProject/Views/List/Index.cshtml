@@ -1,7 +1,9 @@
 ﻿<div class="container body-content">
     <h1>@ViewBag.title</h1>
-    <h2 class="centered">View Wines By Category</h2>
+    <h2 style="color:white" class="centered; text-center">View Wines By Category</h2>
 </div>
+<br /><br />
+
 
 <table class="centeredTable">
     <tr>
@@ -9,10 +11,12 @@
         {
             @if (column.Key != "all")
             {
-                <th>@column.Value</th>
+                <th style="color:white" class="text-center">@column.Value</th>
             }
         }
     </tr>
+
+
     <tr>
         @foreach (var category in ViewBag.tableChoices)
         {
@@ -23,7 +27,7 @@
                         @foreach (var item in ViewBag.winecategories)
                         {
                             <li>
-                                <a asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name</a>
+                                <a style="color:#74FFFF" asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name</a>
                             </li>
                         }
                     }
@@ -32,7 +36,7 @@
                         @foreach (var item in ViewBag.notes)
                         {
                             <li>
-                                <a asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name : @item.Description</a>
+                                <a style="color:#74FFFF" asp-controller="List" asp-action="Wine" asp-route-column="@category" asp-route-value="@item.Name">@item.Name : @item.Description</a>
                             </li>
                         }
                     }
@@ -42,16 +46,17 @@
         }
     </tr>
 </table>
-
-    <table class="table">
+<br /><br />
+<br /><br />
+    <table class="table table-striped">
         <tr>
-            <th>Wine Name</th>
+            <th style="color:white">Wine Name</th>
             @*<th>Flavor</th>*@
         </tr>
         @foreach (var wine in ViewBag.wines)
         {
             <tr>
-                <td><a asp-controller="Home" asp-action="Detail" asp-route-id="@wine.Id">@wine.Name</a></td>
+                <td><a style="color:#74FFFF" asp-controller="Home" asp-action="Detail" asp-route-id="@wine.Id">@wine.Name</a></td>
                 @*<td>@wine.Category</td>@* category.name doesn't return an object. Investigate or remove*@
             </tr>
         }

@@ -2,29 +2,40 @@
 
 
 
-<h1>Add a Wine!</h1>
+<h1 class="text-center" style="color:#74FFFF">Add a Wine!</h1>
 
 <form asp-controller="Home" asp-action="ProcessAddWineForm" method="post">
     <div class="form-group">
-        <label type= "text" asp-for = "Name">Name</label>
+        <label style="color:white" type= "text" asp-for = "Name">Name</label>
         <input class="form-control" asp-for="Name" />
          <span asp-validation-for="Name"></span>
     </div>
-    <div class="form-group"> 
 
-        <label asp-for="CategoryId">Categories</label>
-        <select asp-for="CategoryId" asp-items="Model.AllWineCategories"></select>
+    <div class="form-group"> 
+        <label style="color:white" asp-for="CategoryId">Categories/Wine Varieties</label>
+        <select  multiple class="form-control" asp-for="CategoryId" asp-items="Model.AllWineCategories"></select>
         <span></span>
-        <br /> <a asp-controller="WineCategory" asp-action="Add">Add A Wine</a><br />
+        <br />  <button onclick="location.href='@Url.Action("Add", "WineCategory")';return false;">Add a Wine Category</button>
+        @*<a style="color:ButtonFace" asp-controller="WineCategory" asp-action="Add">Add A Wine Category</a>*@<br />
     </div>
+
+    <br /><h3 class="text-center" style="color:#74FFFF">Add a Wine Note to Your Favorite Sip!</h3> 
+    <h5 class="text-center" style="color:#b5a642">Note: Hover over a note to get a description of what you should see and/or taste in your wine</h5> 
+    <br />
+    
     <div class="form-group">                       
         @foreach (Notes note in Model.Notes)
         {
-            <label for= "@note.Id">@note.Name</label>
+         <ul style="list-style: none;">
+            <li>
+            <label style="color:#74FFFF" title="@note.Description" for= "@note.Id">@note.Name</label>
             <input type="checkbox" name="selectedNotes" value="@note.Id" />
+            </li>
+           </ul>
         } 
         <span></span>
-        <br /> <a asp-controller="Notes" asp-action="Add">Add a Notes</a><br />
+        <br /> <button onclick="location.href='@Url.Action("Add", "Notes")';return false;">Add Notes</button>
+        @*<a style="color:ButtonFace" asp-controller="Notes" asp-action="Add">Add Notes</a>*@<br />
     </div>
  <input type="submit" value="Add Wine" />
 
